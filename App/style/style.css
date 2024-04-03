@@ -1,1 +1,42 @@
+/* style.css */
 
+/* Custom style for the container */
+body {
+    background-color: #f8f9fa; /* Light gray background color */
+}
+
+.container {
+    background-color: #ffffff; /* White container background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+    padding: 20px; /* Padding inside the container */
+    margin-top: 50px; /* Space from the top */
+}
+
+/* Custom style for highlighted selected symptoms */
+.selected-symptom {
+    font-weight: bold;
+    color: #dc3545; /* Bootstrap's danger color for highlighting */
+}
+
+/* Custom style for the heading */
+h1 {
+    color: #007bff; /* Bootstrap's primary color for headings */
+}
+
+/* Custom style for the list */
+ul {
+    list-style-type: none; /* Remove list bullets */
+    padding: 0; /* Remove default padding */
+}
+
+li {
+    margin-bottom: 10px; /* Space between list items */
+}
+
+/* Custom style for the footer */
+.footer {
+    margin-top: 20px; /* Space from the content */
+    text-align: center;
+    color: #6c757d; /* Bootstrap's secondary text color */
+}

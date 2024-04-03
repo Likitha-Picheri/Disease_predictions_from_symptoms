@@ -34,6 +34,7 @@ python app.py
 </details>
 <details>
 <summary>Import Statements</summary>
+  
 ```bash
 import numpy as np
 import pandas as pd
@@ -43,5 +44,14 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
 from flask import Flask, request, jsonify, render_template
-  ```
+```
 </details>
+
+
+**Note:** This project is intended for educational purposes only.
+
+## Project Report
+For more detailed information, refer to the full project report available [here](link_to_report).
+
+
+

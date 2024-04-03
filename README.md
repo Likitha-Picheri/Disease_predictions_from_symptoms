@@ -51,7 +51,7 @@ from flask import Flask, request, jsonify, render_template
 **Note:** This project is intended for educational purposes only.
 
 ## Project Report
-For more detailed information, refer to the full project report available [here](link_to_report).
+For more detailed information, refer to the full project report available [here](DISEASE_PRED.pdf).
 
 
 

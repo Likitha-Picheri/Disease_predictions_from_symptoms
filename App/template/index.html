@@ -1,1 +1,111 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symptom Checker</title>
 
+    <!-- Include Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Custom style for rounded checkboxes */
+        .custom-checkbox .custom-control-label::before {
+            border-radius: 0.25rem;
+        }
+
+        /* Custom style for arranging checkboxes in a grid with 5 checkboxes per row */
+        .custom-checkbox {
+            display: inline-block;
+            margin-right: 15px;
+            margin-bottom: 15px;
+        }
+
+        /* Custom style for the container to center-align the checkboxes */
+        .checkbox-container {
+            text-align: center;
+        }
+        /* Custom style for the footer */
+        .footer {
+            margin-top: 20px; /* Space from the content */
+            text-align: center;
+            color: #6c757d; /* Bootstrap's secondary text color */
+        }
+
+        /* Custom style for the creator box */
+        .creator-box {
+            background-color: #c8e0f4; /* Aesthetic color for the creator box */
+            color: #070505; /* White text color */
+            padding: 10px; /* Padding inside the box */
+            margin-top: 20px; /* Space from the content */
+            border-radius: 5px; /* Rounded corners */
+            /* width: 150px; Fixed width */
+            text-align: center; /* Center text */
+            margin: 0 auto; /* Center the box horizontally */
+        }
+
+        /* Darker color for a small square box */
+        .dark-box {
+            background-color: rgb(16, 71, 127); /* Darker color for the small square box */
+            height: 20px; /* Fixed height */
+            width: 20px; /* Fixed width */
+            display: inline-block; /* Display as an inline block */
+            margin-right: 5px; /* Margin to separate from text */
+        }
+    </style>
+</head>
+<body>
+    <!-- Bootstrap Appbar -->
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1 text-center">Disease Prediction From Symptoms using Machine Learning</span>
+    </nav>
+
+    <div class="container mt-4">
+        <h3 class="mb-4">Select a symptom from the list :</h1>
+
+        <!-- Bootstrap Form -->
+<form action="/predict" method="post">
+    <div class="checkbox-container">
+        {% for symptom in symptoms %}
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="{{ symptom }}" name="symptoms" value="{{ symptom }}">
+                <label class="custom-control-label" for="{{ symptom }}">{{ symptom }}</label>
+            </div>
+            {% if loop.index % 5 == 0 %}
+                <br>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <br>
+    <div class="mt-4 text-center">
+        <p>Choose symptoms and click the button to predict possible diseases.</p>
+        <input type="submit" class="btn btn-lg btn-primary" value="Submit">
+        <button type="button" class="btn btn-lg btn-secondary" onclick="clearSymptoms()">Clear</button>
+    </div>
+</form>
+
+<script>
+    function clearSymptoms() {
+        var checkboxes = document.querySelectorAll('input[name="symptoms"]');
+        checkboxes.forEach(function(checkbox) {
+            checkbox.checked = false;
+        });
+    }
+</script>
+
+    </div>
+
+    
+    <!-- Footer with additional information -->
+    <div class="footer mt-4">
+        <p>19CSE305-Machine Learning</p>
+    </div>
+
+    <!-- Include Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

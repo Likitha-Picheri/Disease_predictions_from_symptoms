@@ -1,0 +1,112 @@
+<!-- templates/result.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicted Diseases</title>
+
+    <!-- Include Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        /* Custom style for the container */
+        body {
+            background-color: #f8f9fa; /* Light gray background color */
+        }
+
+        .container {
+            background-color: #ffffff; /* White container background */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+            padding: 20px; /* Padding inside the container */
+            margin-top: 50px; /* Space from the top */
+        }
+
+        /* Custom style for highlighted selected symptoms */
+        .selected-symptom {
+            font-weight: bold;
+            color: #dc3545; /* Bootstrap's danger color for highlighting */
+        }
+
+        /* Custom style for the heading */
+        h1 {
+            color: #007bff; /* Bootstrap's primary color for headings */
+        }
+
+        /* Custom style for the list */
+        ul {
+            list-style-type: none; /* Remove list bullets */
+            padding: 0; /* Remove default padding */
+        }
+
+        li {
+            margin-bottom: 10px; /* Space between list items */
+        }
+
+        /* Custom style for the footer */
+        .footer {
+            margin-top: 20px; /* Space from the content */
+            text-align: center;
+            color: #6c757d; /* Bootstrap's secondary text color */
+        }
+
+        /* Custom style for the creator box */
+        .creator-box {
+            background-color: #c8e0f4; /* Aesthetic color for the creator box */
+            color: #070505; /* White text color */
+            padding: 10px; /* Padding inside the box */
+            margin-top: 20px; /* Space from the content */
+            border-radius: 5px; /* Rounded corners */
+            /* width: 150px; Fixed width */
+            text-align: center; /* Center text */
+            margin: 0 auto; /* Center the box horizontally */
+        }
+
+        /* Darker color for a small square box */
+        .dark-box {
+            background-color: rgb(16, 71, 127); /* Darker color for the small square box */
+            height: 20px; /* Fixed height */
+            width: 20px; /* Fixed width */
+            display: inline-block; /* Display as an inline block */
+            margin-right: 5px; /* Margin to separate from text */
+        }
+    </style>
+</head>
+<body>
+    <!-- Bootstrap Appbar -->
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1 text-center">Disease Prediction From Symptoms using Machine Learning</span>
+    </nav>
+
+    <div class="container">
+        <h1 class="mb-4">Top 3 Predicted Diseases</h1>
+            </p>
+        <!-- Display selected symptoms with highlighting -->
+        <p>Selected Symptoms: {% for symptom in symptoms %}
+            <span class="selected-symptom">{{ symptom }}</span>{% if not loop.last %}, {% endif %}{% endfor %}
+        </p>
+        
+        <!-- Display top 3 predicted diseases -->
+        <ul>
+            {% for disease, probability in result %}
+                <li>
+                    <strong>{{ disease }}</strong> - Probability: {{ probability }}
+                </li>
+            {% endfor %}
+        </ul>
+        
+        
+        <!-- Footer with additional information -->
+        <div class="footer mt-4">
+            <p>19CSE305-Machine Learning</p>
+            <p>[ NOTE: This app is meant for demo purposes only. Please consult a Doctor if you have any symptoms. ]
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
